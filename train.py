@@ -6,11 +6,11 @@ model = YOLO("yolov8n-cls.pt")
 
 # 2. Training
 model.train(
-    data="dataset",    # folder dataset (subfolder = kelas)
-    epochs=20,         # jumlah epoch training
-    imgsz=224,         # ukuran input gambar
-    batch=16,          # jumlah batch
-    device=0           # pakai GPU (0) kalau ada, atau -1 untuk CPU
+    data="dataset",    # folder dataset
+    epochs=20,
+    imgsz=224,
+    batch=16,
+    device="cpu"       # pakai CPU
 )
 
 # 3. Setelah training, model terbaik tersimpan di:
