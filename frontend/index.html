@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Deteksi Lantai Kotor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="sidebar" id="sidebar">
+    <h2>🧹 Deteksi Lantai</h2>
+    <ul>
+      <li><a href="#" class="active" onclick="showPage('dashboard')">📊 Dashboard</a></li>
+      <li><a href="#" onclick="showPage('history')">📜 Histori</a></li>
+      <li><a href="#" onclick="showPage('live')">🎥 Live CCTV</a></li>
+      <li><a href="#" onclick="showPage('notif')">🔔 Notifikasi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <h1>Dashboard</h1>
+    <button class="toggle-mode" onclick="toggleMode()">🌙/☀️</button>
+  </header>
+
+  <main>
+    <section id="dashboard" class="page">
+      <h3>Upload & Deteksi Gambar</h3>
+      <div class="card">
+        <input type="file" id="imgInput" accept="image/*" onchange="previewImage(event)">
+        <button class="btn-primary" onclick="dummyDetect()">🚀 Deteksi</button>
+        <div id="preview"></div>
+      </div>
+    </section>
+
+    <section id="history" class="page" style="display:none">
+      <h3>Histori Deteksi</h3>
+      <div class="card">
+        <table>
+          <thead>
+            <tr><th>Waktu</th><th>Status</th><th>Gambar</th></tr>
+          </thead>
+          <tbody id="historyTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="live" class="page" style="display:none">
+      <h3>Live CCTV</h3>
+      <div class="card">
+        <input type="text" id="cctvLink" placeholder="Masukkan link stream (mp4/mjpeg)">
+        <button class="btn-secondary" onclick="showCCTV()">▶️ Tampilkan</button>
+        <div id="cctvPreview">
+          <video id="cctvVideo" width="100%" controls autoplay loop style="display:none"></video>
+        </div>
+      </div>
+    </section>
+
+    <section id="notif" class="page" style="display:none">
+      <h3>Daftar Kontak Notifikasi</h3>
+      <div class="card">
+        <input type="text" id="namaKontak" placeholder="Nama">
+        <input type="text" id="kontak" placeholder="Email/WA/Telegram">
+        <button class="btn-primary" onclick="tambahKontak()">➕ Tambah</button>
+        <ul id="daftarKontak"></ul>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
