@@ -11,7 +11,7 @@ from . import models, database
 # Inisialisasi
 models.Base.metadata.create_all(bind=database.engine)
 app = FastAPI()
-model = YOLO("../runs/classify/train/weights/best.pt")
+model = YOLO("../runs/classify/train3/weights/best.pt")
 
 # Dependency DB
 def get_db():
